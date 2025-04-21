@@ -19,6 +19,7 @@ from sopel import plugin
 OUTPUT_PREFIX = '[ASN] '
 ENDPOINTS = {
     'origin': 'origin.asn.cymru.com',
+    'origin6': 'origin6.asn.cymru.com',
     'peers': 'peer.asn.cymru.com',
     'asn': 'asn.cymru.com',
 }
@@ -53,12 +54,25 @@ def get_asn_info(bot, trigger):
             ip = 'AS' + ip
         lookup = ip
     else:
-        lookup = '.'.join([str(x) for x in reversed(ip.packed)])
+        if ip.version == 4:
+            lookup = '.'.join([str(x) for x in reversed(ip.packed)])
+        elif ip.version == 6:
+            nibbles = [n for n in ip.packed.hex()]
+            while nibbles[-1] == '0' and nibbles[-2] == '0':
+                nibbles.pop()
+                nibbles.pop()
+            lookup = '.'.join([str(x) for x in reversed(nibbles)])
 
     if cmd in ('asn'):
         base = ENDPOINTS['asn']
     elif cmd in ('asno', 'asnorigin'):
-        base = ENDPOINTS['origin']
+        if ip.version == 4:
+            base = ENDPOINTS['origin']
+        elif ip.version == 6:
+            base = ENDPOINTS['origin6']
+        else:
+            bot.reply("Invalid IP address version.")
+            return plugin.NOLIMIT
     elif cmd in ('asnp', 'asnpeers'):
         base = ENDPOINTS['peers']
     else:
