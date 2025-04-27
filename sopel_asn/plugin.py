@@ -16,7 +16,7 @@ import dns.resolver
 from sopel import plugin
 
 
-OUTPUT_PREFIX = '[ASN] '
+PREFIX = plugin.output_prefix('[ASN] ')
 ENDPOINTS = {
     'origin': 'origin.asn.cymru.com',
     'origin6': 'origin6.asn.cymru.com',
@@ -30,9 +30,9 @@ ENDPOINTS = {
 @plugin.commands('asn', 'asno', 'asnorigin', 'asnp', 'asnpeers')
 @plugin.example('.asno 198.6.1.65', user_help=True)
 @plugin.example('.asn AS23028', user_help=True)
-@plugin.output_prefix(OUTPUT_PREFIX)
+@PREFIX
 @plugin.rate(
-    user=120,
+    user=30,
     message="Please wait {time_left} before attempting another ASN lookup."
 )
 def asn_commands(bot, trigger):
