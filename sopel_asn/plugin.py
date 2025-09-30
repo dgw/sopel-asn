@@ -8,9 +8,6 @@ Licensed under the Eiffel Forum License 2.
 """
 from __future__ import annotations
 
-import ipaddress
-import re
-
 import dns.resolver
 
 from sopel import plugin
