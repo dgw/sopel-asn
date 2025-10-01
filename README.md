@@ -15,11 +15,18 @@ $ pip install sopel-asn
 **[IPv4, IPv6]** Origin lookup — Find what ASN an IP belongs to:
 
 ```
-<dgw> .asno 208.67.222.222
+<dgw> .asn 208.67.222.222
 <Sopel> [ASN] AS36692 | 208.67.222.0/24 | US | Registered at arin on 2006-06-06
 
-<dgw> .asnorigin 2001:4860:b002::68
+<dgw> .asn 2001:4860:b002::68
 <Sopel> [ASN] AS15169 | 2001:4860::/32 | US | Registered at arin on 2005-03-14
+```
+
+**[ASN]** AS info — Find the name of an ASN's registrant:
+
+```
+<dgw> .asn 15169
+<Sopel> [ASN] AS15169 | GOOGLE, US | US | Registered at arin on 2000-03-30
 ```
 
 **[IPv4]** Peer lookup — Find other BGP peers of an IP address:
@@ -31,14 +38,7 @@ $ pip install sopel-asn
 
 # Note: BGP peer lookup is not currently supported for IPv6 addresses.
 <dgw> .asnpeers 2001:4860:b002::68
-<Sopel> No records found for 2001:4860:b002::68.
-```
-
-**[ASN]** AS info — Find the name of an ASN's registrant:
-
-```
-<dgw> .asn 15169
-<Sopel> [ASN] AS15169 | GOOGLE, US | US | Registered at arin on 2000-03-30
+<Sopel> dgw: 2001:4860:b002::68 is not a valid IPv4 address.
 ```
 
 ## Background
