@@ -15,7 +15,7 @@ readme = { file=["README.md", "NEWS"], content-type="text/markdown" }
 [project]
 name = "sopel-asn"
 version = "0.1.0"
-description = "ASN lookup plugin for Sopel IRC bots"
+description = "ASN (and MAC address) lookup plugin for Sopel IRC bots"
 
 authors = [
   { name="dgw", email="dgw@technobabbl.es" },
@@ -40,7 +40,6 @@ keywords = [
 requires-python = ">=3.8, <4"
 dependencies = [
   "sopel>=8.0",
-  "dnspython~=2.0",
 ]
 
 [project.urls]
