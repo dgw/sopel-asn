@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=63.0", "wheel"]
+requires = ["setuptools>=77.0.3", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
@@ -14,7 +14,7 @@ readme = { file=["README.md", "NEWS"], content-type="text/markdown" }
 
 [project]
 name = "sopel-asn"
-version = "0.1.0"
+version = "0.2.0"
 description = "ASN (and MAC address) lookup plugin for Sopel IRC bots"
 
 authors = [

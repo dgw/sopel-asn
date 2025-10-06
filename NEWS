@@ -1,5 +1,18 @@
 ## Changelog
 
+### 0.2.0
+
+Simplified commands: `.asn` now handles ASNs, IPv4, and IPv6.
+
+Using `bgp.tools` as backend instead of Team Cymru's DNS interface. Peer lookup
+(`.asnp` command) is sadly no longer supported.
+
+There is a new `.mac` command to look up the vendor ([OUI][nic-oui]) of hardware
+MAC addresses, however.
+
+[nic-oui]: https://en.wikipedia.org/wiki/Organizationally_unique_identifier
+
+
 ### 0.1.0
 
 First release of `sopel-asn`.
